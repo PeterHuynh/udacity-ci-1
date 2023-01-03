@@ -5,6 +5,8 @@ jobs:
     docker:
       - image: cimg/node:13.8.0
     steps:
+      - checkout
+      - run: npm i
       - run:
           name: "build the app packages"
           command: npm run lint
@@ -13,6 +15,8 @@ jobs:
     docker:
       - image: cimg/node:13.8.0
     steps:
+      - checkout
+      - run: npm i
       - run:
           name: "test the app packages"
           command: npm run test
@@ -21,6 +25,7 @@ jobs:
     docker:
       - image: cimg/node:13.8.0
     steps:
+      - checkout
       - run:
           name: "Anlayze packages for security"
           command: npm audit
