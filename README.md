@@ -1,3 +1,3 @@
-# Hello, It work for my phuynh lab
+# Hello, CI works as expected
 
-CI Learn
+PHuynh learns Circle CI
