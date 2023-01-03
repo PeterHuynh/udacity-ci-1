@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:13.8.0
+    steps:
+      - npm run lint
+
+  test:
+    docker:
+      - image: cimg/node:13.8.0
+    steps:
+      - npm run test
+
+  analyze:
+    docker:
+      - image: cimg/node:13.8.0
+    steps:
+      - npm audit
+
+workflows:
+  my-app-workflow:
+    jobs:
+      - build:
+      - test:
+          requires: [build]
+      - analyze:
+          requires: [build]
