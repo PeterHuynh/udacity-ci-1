@@ -22,8 +22,9 @@ jobs:
 workflows:
   my-app-workflow:
     jobs:
-      - build:
+      - build
       - test:
           requires: [build]
       - analyze:
-          requires: [build]
+          requires:
+            - test
