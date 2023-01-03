@@ -6,21 +6,24 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
       - name: "build the app packages"
-      - command: npm run lint
+      - run:
+          command: npm run lint
 
   test:
     docker:
       - image: cimg/node:13.8.0
     steps:
       - name: "test the app packages"
-      - command: npm run test
+      - run:
+          command: npm run test
 
   analyze:
     docker:
       - image: cimg/node:13.8.0
     steps:
       - name: "Anlayze packages for security"
-      - command: npm audit
+      - run:
+          command: npm audit
 
 workflows:
   my-app-workflow:
